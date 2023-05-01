@@ -1,0 +1,566 @@
+[gd_scene load_steps=3 format=3 uid="uid://bur8abu2vp2fn"]
+
+[ext_resource type="Script" path="res://scripts/gui/keyboard/virtual_key.gd" id="1_5rkog"]
+[ext_resource type="Script" path="res://scripts/gui/keyboard/virtual_shift.gd" id="2_70ytg"]
+
+[node name="KeyboardGUI" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Body" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -506.0
+offset_top = -168.0
+offset_right = 506.0
+offset_bottom = 168.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/Body"]
+layout_mode = 2
+
+[node name="VirtualKey" type="Button" parent="Panel/Body/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "` ~"
+script = ExtResource("1_5rkog")
+key_text = "`"
+lower_case_unicode = 96
+shift_mod_unicode = 126
+
+[node name="VirtualKey2" type="Button" parent="Panel/Body/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "1"
+script = ExtResource("1_5rkog")
+key_text = "1"
+lower_case_unicode = 49
+shift_mod_unicode = 33
+
+[node name="VirtualKey3" type="Button" parent="Panel/Body/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "2"
+script = ExtResource("1_5rkog")
+key_text = "2"
+lower_case_unicode = 50
+shift_mod_unicode = 64
+
+[node name="VirtualKey4" type="Button" parent="Panel/Body/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "3"
+script = ExtResource("1_5rkog")
+key_text = "3"
+lower_case_unicode = 51
+shift_mod_unicode = 35
+
+[node name="VirtualKey5" type="Button" parent="Panel/Body/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "4"
+script = ExtResource("1_5rkog")
+key_text = "4"
+lower_case_unicode = 52
+shift_mod_unicode = 36
+
+[node name="VirtualKey6" type="Button" parent="Panel/Body/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "5"
+script = ExtResource("1_5rkog")
+key_text = "5"
+lower_case_unicode = 53
+shift_mod_unicode = 37
+
+[node name="VirtualKey7" type="Button" parent="Panel/Body/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "6"
+script = ExtResource("1_5rkog")
+key_text = "6"
+lower_case_unicode = 54
+shift_mod_unicode = 94
+
+[node name="VirtualKey8" type="Button" parent="Panel/Body/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "7"
+script = ExtResource("1_5rkog")
+key_text = "7"
+lower_case_unicode = 55
+shift_mod_unicode = 38
+
+[node name="VirtualKey9" type="Button" parent="Panel/Body/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "8"
+script = ExtResource("1_5rkog")
+key_text = "8"
+lower_case_unicode = 56
+shift_mod_unicode = 42
+
+[node name="VirtualKey10" type="Button" parent="Panel/Body/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "9"
+script = ExtResource("1_5rkog")
+key_text = "9"
+lower_case_unicode = 57
+shift_mod_unicode = 40
+
+[node name="VirtualKey11" type="Button" parent="Panel/Body/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "0"
+script = ExtResource("1_5rkog")
+key_text = "0"
+lower_case_unicode = 48
+shift_mod_unicode = 41
+
+[node name="VirtualKey12" type="Button" parent="Panel/Body/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "- _"
+script = ExtResource("1_5rkog")
+key_text = "-"
+lower_case_unicode = 45
+shift_mod_unicode = 95
+
+[node name="VirtualKey13" type="Button" parent="Panel/Body/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "= +"
+script = ExtResource("1_5rkog")
+key_text = "="
+lower_case_unicode = 61
+shift_mod_unicode = 43
+
+[node name="BackButton" type="Button" parent="Panel/Body/HBoxContainer"]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "back"
+script = ExtResource("1_5rkog")
+key_text = "BackSpace"
+lower_case_unicode = 8
+shift_mod_unicode = 8
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/Body"]
+layout_mode = 2
+
+[node name="Tab" type="Button" parent="Panel/Body/HBoxContainer2"]
+custom_minimum_size = Vector2(90, 64)
+layout_mode = 2
+disabled = true
+text = "tab"
+script = ExtResource("1_5rkog")
+
+[node name="VirtualKey" type="Button" parent="Panel/Body/HBoxContainer2"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "Q"
+script = ExtResource("1_5rkog")
+key_text = "q"
+lower_case_unicode = 113
+shift_mod_unicode = 81
+
+[node name="VirtualKey2" type="Button" parent="Panel/Body/HBoxContainer2"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "W"
+script = ExtResource("1_5rkog")
+key_text = "w"
+lower_case_unicode = 119
+shift_mod_unicode = 87
+
+[node name="VirtualKey3" type="Button" parent="Panel/Body/HBoxContainer2"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "E"
+script = ExtResource("1_5rkog")
+key_text = "e"
+lower_case_unicode = 101
+shift_mod_unicode = 69
+
+[node name="VirtualKey4" type="Button" parent="Panel/Body/HBoxContainer2"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "R"
+script = ExtResource("1_5rkog")
+key_text = "r"
+lower_case_unicode = 114
+shift_mod_unicode = 82
+
+[node name="VirtualKey5" type="Button" parent="Panel/Body/HBoxContainer2"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "T"
+script = ExtResource("1_5rkog")
+key_text = "t"
+lower_case_unicode = 116
+shift_mod_unicode = 84
+
+[node name="VirtualKey6" type="Button" parent="Panel/Body/HBoxContainer2"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "Y"
+script = ExtResource("1_5rkog")
+key_text = "y"
+lower_case_unicode = 121
+shift_mod_unicode = 89
+
+[node name="VirtualKey7" type="Button" parent="Panel/Body/HBoxContainer2"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "U"
+script = ExtResource("1_5rkog")
+key_text = "u"
+lower_case_unicode = 117
+shift_mod_unicode = 85
+
+[node name="VirtualKey8" type="Button" parent="Panel/Body/HBoxContainer2"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "I"
+script = ExtResource("1_5rkog")
+key_text = "i"
+lower_case_unicode = 105
+shift_mod_unicode = 73
+
+[node name="VirtualKey9" type="Button" parent="Panel/Body/HBoxContainer2"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "O"
+script = ExtResource("1_5rkog")
+key_text = "o"
+lower_case_unicode = 111
+shift_mod_unicode = 79
+
+[node name="VirtualKey10" type="Button" parent="Panel/Body/HBoxContainer2"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "P"
+script = ExtResource("1_5rkog")
+key_text = "p"
+lower_case_unicode = 112
+shift_mod_unicode = 80
+
+[node name="VirtualKey11" type="Button" parent="Panel/Body/HBoxContainer2"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "[ {"
+script = ExtResource("1_5rkog")
+key_text = "["
+lower_case_unicode = 91
+shift_mod_unicode = 123
+
+[node name="VirtualKey12" type="Button" parent="Panel/Body/HBoxContainer2"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "] }"
+script = ExtResource("1_5rkog")
+key_text = "]"
+lower_case_unicode = 93
+shift_mod_unicode = 125
+
+[node name="VirtualKey13" type="Button" parent="Panel/Body/HBoxContainer2"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "\\ |"
+script = ExtResource("1_5rkog")
+key_text = "\\"
+lower_case_unicode = 92
+shift_mod_unicode = 124
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/Body"]
+layout_mode = 2
+
+[node name="Caps" type="Button" parent="Panel/Body/HBoxContainer3"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "caps lock"
+script = ExtResource("2_70ytg")
+is_caps = true
+
+[node name="VirtualKey" type="Button" parent="Panel/Body/HBoxContainer3"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "A"
+script = ExtResource("1_5rkog")
+key_text = "A"
+lower_case_unicode = 97
+shift_mod_unicode = 65
+
+[node name="VirtualKey2" type="Button" parent="Panel/Body/HBoxContainer3"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "S"
+script = ExtResource("1_5rkog")
+key_text = "s"
+lower_case_unicode = 115
+shift_mod_unicode = 83
+
+[node name="VirtualKey3" type="Button" parent="Panel/Body/HBoxContainer3"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "D"
+script = ExtResource("1_5rkog")
+key_text = "d"
+lower_case_unicode = 100
+shift_mod_unicode = 68
+
+[node name="VirtualKey4" type="Button" parent="Panel/Body/HBoxContainer3"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "F"
+script = ExtResource("1_5rkog")
+key_text = "f"
+lower_case_unicode = 102
+shift_mod_unicode = 70
+
+[node name="VirtualKey5" type="Button" parent="Panel/Body/HBoxContainer3"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "G"
+script = ExtResource("1_5rkog")
+key_text = "g"
+lower_case_unicode = 103
+shift_mod_unicode = 71
+
+[node name="VirtualKey6" type="Button" parent="Panel/Body/HBoxContainer3"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "H"
+script = ExtResource("1_5rkog")
+key_text = "h"
+lower_case_unicode = 104
+shift_mod_unicode = 72
+
+[node name="VirtualKey7" type="Button" parent="Panel/Body/HBoxContainer3"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "J"
+script = ExtResource("1_5rkog")
+key_text = "j"
+lower_case_unicode = 106
+shift_mod_unicode = 74
+
+[node name="VirtualKey8" type="Button" parent="Panel/Body/HBoxContainer3"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "K"
+script = ExtResource("1_5rkog")
+key_text = "k"
+lower_case_unicode = 107
+shift_mod_unicode = 75
+
+[node name="VirtualKey9" type="Button" parent="Panel/Body/HBoxContainer3"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "L"
+script = ExtResource("1_5rkog")
+key_text = "l"
+lower_case_unicode = 108
+shift_mod_unicode = 76
+
+[node name="VirtualKey10" type="Button" parent="Panel/Body/HBoxContainer3"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "; :"
+script = ExtResource("1_5rkog")
+key_text = ";"
+lower_case_unicode = 59
+shift_mod_unicode = 58
+
+[node name="VirtualKey11" type="Button" parent="Panel/Body/HBoxContainer3"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "' \""
+script = ExtResource("1_5rkog")
+key_text = "'"
+lower_case_unicode = 39
+shift_mod_unicode = 34
+
+[node name="Enter" type="Button" parent="Panel/Body/HBoxContainer3"]
+custom_minimum_size = Vector2(150, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "enter"
+script = ExtResource("1_5rkog")
+key_text = "Enter"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Panel/Body"]
+layout_mode = 2
+
+[node name="LShift" type="Button" parent="Panel/Body/HBoxContainer4"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "shift"
+script = ExtResource("2_70ytg")
+
+[node name="VirtualKey" type="Button" parent="Panel/Body/HBoxContainer4"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "Z"
+script = ExtResource("1_5rkog")
+key_text = "z"
+lower_case_unicode = 122
+shift_mod_unicode = 90
+
+[node name="VirtualKey2" type="Button" parent="Panel/Body/HBoxContainer4"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "X"
+script = ExtResource("1_5rkog")
+key_text = "x"
+lower_case_unicode = 120
+shift_mod_unicode = 88
+
+[node name="VirtualKey3" type="Button" parent="Panel/Body/HBoxContainer4"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "C"
+script = ExtResource("1_5rkog")
+key_text = "c"
+lower_case_unicode = 99
+shift_mod_unicode = 67
+
+[node name="VirtualKey4" type="Button" parent="Panel/Body/HBoxContainer4"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "V"
+script = ExtResource("1_5rkog")
+key_text = "v"
+lower_case_unicode = 118
+shift_mod_unicode = 86
+
+[node name="VirtualKey5" type="Button" parent="Panel/Body/HBoxContainer4"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "B"
+script = ExtResource("1_5rkog")
+key_text = "b"
+lower_case_unicode = 98
+shift_mod_unicode = 66
+
+[node name="VirtualKey6" type="Button" parent="Panel/Body/HBoxContainer4"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "N"
+script = ExtResource("1_5rkog")
+key_text = "n"
+lower_case_unicode = 110
+shift_mod_unicode = 78
+
+[node name="VirtualKey7" type="Button" parent="Panel/Body/HBoxContainer4"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "M"
+script = ExtResource("1_5rkog")
+key_text = "m"
+lower_case_unicode = 109
+shift_mod_unicode = 77
+
+[node name="VirtualKey8" type="Button" parent="Panel/Body/HBoxContainer4"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = ", <"
+script = ExtResource("1_5rkog")
+key_text = ","
+lower_case_unicode = 44
+shift_mod_unicode = 60
+
+[node name="VirtualKey9" type="Button" parent="Panel/Body/HBoxContainer4"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = ". >"
+script = ExtResource("1_5rkog")
+key_text = "."
+lower_case_unicode = 46
+shift_mod_unicode = 62
+
+[node name="VirtualKey10" type="Button" parent="Panel/Body/HBoxContainer4"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "/ ?"
+script = ExtResource("1_5rkog")
+key_text = "/"
+lower_case_unicode = 47
+shift_mod_unicode = 63
+
+[node name="RShift" type="Button" parent="Panel/Body/HBoxContainer4"]
+custom_minimum_size = Vector2(180, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "shift"
+script = ExtResource("2_70ytg")
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="Panel/Body"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Panel/Body/HBoxContainer5"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+disabled = true
+
+[node name="Button2" type="Button" parent="Panel/Body/HBoxContainer5"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+disabled = true
+
+[node name="Button3" type="Button" parent="Panel/Body/HBoxContainer5"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+disabled = true
+text = "copy"
+
+[node name="Space" type="Button" parent="Panel/Body/HBoxContainer5"]
+custom_minimum_size = Vector2(400, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "space"
+script = ExtResource("1_5rkog")
+key_text = "Space"
+lower_case_unicode = 32
+shift_mod_unicode = 32
+
+[node name="Button5" type="Button" parent="Panel/Body/HBoxContainer5"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+disabled = true
+text = "paste
+"
+
+[node name="Button7" type="Button" parent="Panel/Body/HBoxContainer5"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+disabled = true
+text = "
+"
+
+[node name="Button6" type="Button" parent="Panel/Body/HBoxContainer5"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+disabled = true
+text = "
+"

@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://bpmhj6hr2t8wy"]
+
+[ext_resource type="PackedScene" uid="uid://dokpwcu5fxocc" path="res://interaction/gui/gui_3d.tscn" id="1_jqvdq"]
+[ext_resource type="PackedScene" uid="uid://dk1b6r8slfqtj" path="res://gui/2d/multiplayer_gui.tscn" id="2_ju86m"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tbysy"]
+resource_local_to_scene = true
+size = Vector3(1, 1, 0.01)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_q33ek"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eofwj"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_q33ek")
+
+[sub_resource type="QuadMesh" id="QuadMesh_6t56v"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_eofwj")
+
+[node name="MultiplayerStart" instance=ExtResource("1_jqvdq")]
+gui = ExtResource("2_ju86m")
+
+[node name="CollisionShape3D" parent="." index="0"]
+shape = SubResource("BoxShape3D_tbysy")
+
+[node name="SubViewport" parent="." index="1"]
+size = Vector2i(1024, 1024)
+
+[node name="MeshInstance3D" parent="." index="2"]
+mesh = SubResource("QuadMesh_6t56v")

@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://xhtew83vkg4d"]
+
+[ext_resource type="Script" path="res://scripts/interactions/start_xr.gd" id="1_njvo6"]
+[ext_resource type="PackedScene" uid="uid://tf0xka0b4uch" path="res://interaction/player/xr_rig.tscn" id="2_unfkf"]
+[ext_resource type="PackedScene" uid="uid://cavbt16irkdbv" path="res://gui/3d/virtual_keyboard.tscn" id="3_1u5p0"]
+[ext_resource type="PackedScene" uid="uid://bpmhj6hr2t8wy" path="res://gui/3d/multiplayer_start.tscn" id="4_sp4su"]
+[ext_resource type="Environment" uid="uid://pffg67f0khfu" path="res://default_envrionment.tres" id="5_i243p"]
+
+[node name="Root" type="Node"]
+script = ExtResource("1_njvo6")
+
+[node name="XRRig" parent="." instance=ExtResource("2_unfkf")]
+
+[node name="VirtualKeyboard" parent="." node_paths=PackedStringArray("active_viewport") instance=ExtResource("3_1u5p0")]
+transform = Transform3D(-1, 2.26267e-08, -8.44439e-08, 0, 0.965926, 0.258819, 8.74228e-08, 0.258819, -0.965926, 0, 0.67287, 2)
+visible = false
+active_viewport = NodePath("../MultiplayerStart/SubViewport")
+
+[node name="MultiplayerStart" parent="." instance=ExtResource("4_sp4su")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1, 3)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("5_i243p")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(0.5, -1.49012e-08, 0.866025, -0.75, 0.5, 0.433013, -0.433013, -0.866025, 0.25, 0, 0, 0)
+light_angular_distance = 0.5

@@ -1,0 +1,12 @@
+{
+  "livePreview": false,
+  "readableLineLength": true,
+  "showFrontmatter": false,
+  "foldHeading": true,
+  "foldIndent": true,
+  "showLineNumber": false,
+  "showIndentGuide": true,
+  "rightToLeft": false,
+  "spellcheck": false,
+  "useMarkdownLinks": true
+}

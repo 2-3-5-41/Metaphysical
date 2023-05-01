@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://dokpwcu5fxocc"]
+
+[ext_resource type="Script" path="res://scripts/interactions/gui/gui_3d.gd" id="1_ko4q6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4ckl3"]
+resource_local_to_scene = true
+size = Vector3(1, 1, 0.01)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_q5ipu"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v3m0y"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_q5ipu")
+
+[sub_resource type="QuadMesh" id="QuadMesh_vx3eu"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_v3m0y")
+
+[node name="GUI3D" type="StaticBody3D"]
+script = ExtResource("1_ko4q6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_4ckl3")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+disable_3d = true
+gui_embed_subwindows = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_vx3eu")

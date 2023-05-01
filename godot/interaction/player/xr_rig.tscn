@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://tf0xka0b4uch"]
+
+[ext_resource type="Script" path="res://scripts/interactions/gui/gui_laser.gd" id="1_yctnb"]
+[ext_resource type="Script" path="res://scripts/interactions/gui/gui_laser_event_system.gd" id="2_o7p1o"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_7jrf1"]
+radius = 0.05
+height = 0.1
+
+[node name="XRRig" type="XROrigin3D" groups=["local_space"]]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="."]
+
+[node name="LeftHand" type="XRController3D" parent="."]
+tracker = &"left_hand"
+pose = &"aim"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LeftHand"]
+mesh = SubResource("SphereMesh_7jrf1")
+
+[node name="GUILaser" type="RayCast3D" parent="LeftHand"]
+target_position = Vector3(0, 0, -100)
+debug_shape_thickness = 1
+script = ExtResource("1_yctnb")
+
+[node name="RightHand" type="XRController3D" parent="."]
+tracker = &"right_hand"
+pose = &"aim"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RightHand"]
+mesh = SubResource("SphereMesh_7jrf1")
+
+[node name="GUILaser" type="RayCast3D" parent="RightHand"]
+target_position = Vector3(0, 0, -100)
+debug_shape_thickness = 1
+script = ExtResource("1_yctnb")
+
+[node name="GUILaserEventSystem" type="Node" parent="."]
+script = ExtResource("2_o7p1o")
+
+[connection signal="laser_button_pressed" from="LeftHand/GUILaser" to="GUILaserEventSystem" method="_handle_laser_input_pressed"]
+[connection signal="laser_button_released" from="LeftHand/GUILaser" to="GUILaserEventSystem" method="_handle_laser_input_released"]
+[connection signal="laser_entered_gui" from="LeftHand/GUILaser" to="GUILaserEventSystem" method="_on_entered_gui"]
+[connection signal="laser_exited_gui" from="LeftHand/GUILaser" to="GUILaserEventSystem" method="_on_exited_gui"]
+[connection signal="laser_moved" from="LeftHand/GUILaser" to="GUILaserEventSystem" method="_handle_laser_moved"]
+[connection signal="laser_button_pressed" from="RightHand/GUILaser" to="GUILaserEventSystem" method="_handle_laser_input_pressed"]
+[connection signal="laser_button_released" from="RightHand/GUILaser" to="GUILaserEventSystem" method="_handle_laser_input_released"]
+[connection signal="laser_entered_gui" from="RightHand/GUILaser" to="GUILaserEventSystem" method="_on_entered_gui"]
+[connection signal="laser_exited_gui" from="RightHand/GUILaser" to="GUILaserEventSystem" method="_on_exited_gui"]
+[connection signal="laser_moved" from="RightHand/GUILaser" to="GUILaserEventSystem" method="_handle_laser_moved"]

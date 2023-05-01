@@ -1,0 +1,36 @@
+[gd_scene load_steps=8 format=3 uid="uid://cavbt16irkdbv"]
+
+[ext_resource type="Script" path="res://scripts/gui/keyboard/virtual_keyboard.gd" id="1_foe75"]
+[ext_resource type="PackedScene" uid="uid://dokpwcu5fxocc" path="res://interaction/gui/gui_3d.tscn" id="1_qqerm"]
+[ext_resource type="PackedScene" uid="uid://bur8abu2vp2fn" path="res://gui/2d/keyboard_gui.tscn" id="2_54xg2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_86o7h"]
+resource_local_to_scene = true
+size = Vector3(3.37838, 1, 0.01)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_shmax"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_50jmr"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_shmax")
+
+[sub_resource type="QuadMesh" id="QuadMesh_dtwbl"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_50jmr")
+size = Vector2(3.37838, 1)
+
+[node name="VirtualKeyboard" groups=["local_space"] instance=ExtResource("1_qqerm")]
+script = ExtResource("1_foe75")
+world_scale = 0.2
+gui = ExtResource("2_54xg2")
+
+[node name="CollisionShape3D" parent="." index="0"]
+shape = SubResource("BoxShape3D_86o7h")
+
+[node name="SubViewport" parent="." index="1"]
+size = Vector2i(1050, 370)
+
+[node name="MeshInstance3D" parent="." index="2"]
+mesh = SubResource("QuadMesh_dtwbl")
