@@ -6,6 +6,9 @@ class_name VirtualKeyboard
 var shift_mod: bool = false
 var caps_lock: bool = false
 
+func _ready():
+	visible = false
+
 func _start_editing(value: bool):
 	visible = value
 
