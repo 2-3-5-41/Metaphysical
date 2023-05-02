@@ -1,5 +1,5 @@
-extends RayCast3D
-class_name GUILaser
+extends Node
+class_name GUILaserModule
 
 signal laser_entered_gui(gui)
 signal laser_exited_gui
@@ -10,7 +10,8 @@ signal laser_button_released(laser, point)
 @export var ui_interact_action: String = "trigger_click"
 @export var lerp_speed: float = 8.0
 
-@onready var controller: XRController3D = $".."
+@onready var laser: RayCast3D = $".."
+@onready var controller: XRController3D = $"../.."
 
 var target_gui: GUI3D
 var current_hit: Vector3
@@ -29,7 +30,7 @@ func _ready():
 	controller.connect("button_released", _handle_button_released)
 
 func _process(_delta):
-	if !self.is_colliding():
+	if !laser.is_colliding():
 		if target_gui == null:
 			return
 		
@@ -38,7 +39,7 @@ func _process(_delta):
 		
 		return
 	
-	var hit = self.get_collider()
+	var hit = laser.get_collider()
 	
 	if hit is GUI3D:
 		target_gui = hit
@@ -50,7 +51,7 @@ func _physics_process(delta):
 	_handle_pointer_moved(delta)
 
 func _handle_pointer_moved(delta: float):
-	current_hit = current_hit.lerp(get_collision_point(), delta * lerp_speed)
+	current_hit = current_hit.lerp(laser.get_collision_point(), delta * lerp_speed)
 	
 	emit_signal("laser_moved", self, current_hit, prev_hit)
 	

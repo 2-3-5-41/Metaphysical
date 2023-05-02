@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfpsivfo7rr6o"]
+[gd_scene load_steps=3 format=3 uid="uid://cfpsivfo7rr6o"]
 
-[ext_resource type="Script" path="res://scripts/interactions/gui/gui_laser.gd" id="1_yctnb"]
+[ext_resource type="PackedScene" uid="uid://dpvnpxvqlwv5w" path="res://interaction/player/xr_laser.tscn" id="1_wlxon"]
 [ext_resource type="Script" path="res://scripts/interactions/gui/gui_event_system.gd" id="2_2w6ax"]
-[ext_resource type="PackedScene" uid="uid://xvp3wtcj4yh8" path="res://interaction/grabbing/grabbing_laser.tscn" id="2_mg4ki"]
 
 [node name="XRRig" type="XROrigin3D" groups=["local_space"]]
 
@@ -14,37 +13,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 0)
 tracker = &"left_hand"
 pose = &"aim"
 
-[node name="GUILaser" type="RayCast3D" parent="LeftHand"]
-target_position = Vector3(0, 0, -100)
-collision_mask = 4
-debug_shape_thickness = 1
-script = ExtResource("1_yctnb")
-
-[node name="GrabbingLaser" parent="LeftHand" instance=ExtResource("2_mg4ki")]
+[node name="XRLaser" parent="LeftHand" node_paths=PackedStringArray("controller") instance=ExtResource("1_wlxon")]
+controller = NodePath("..")
 
 [node name="RightHand" type="XRController3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0)
 tracker = &"right_hand"
 pose = &"aim"
 
-[node name="GUILaser" type="RayCast3D" parent="RightHand"]
-target_position = Vector3(0, 0, -100)
-collision_mask = 4
-debug_shape_thickness = 1
-script = ExtResource("1_yctnb")
-
-[node name="GrabbingLaser" parent="RightHand" instance=ExtResource("2_mg4ki")]
+[node name="XRLaser" parent="RightHand" node_paths=PackedStringArray("controller") instance=ExtResource("1_wlxon")]
+controller = NodePath("..")
 
 [node name="GUIEventSystem" type="Node" parent="."]
 script = ExtResource("2_2w6ax")
 
-[connection signal="laser_button_pressed" from="LeftHand/GUILaser" to="GUIEventSystem" method="_handle_laser_input_pressed"]
-[connection signal="laser_button_released" from="LeftHand/GUILaser" to="GUIEventSystem" method="_handle_laser_input_released"]
-[connection signal="laser_entered_gui" from="LeftHand/GUILaser" to="GUIEventSystem" method="_on_entered_gui"]
-[connection signal="laser_exited_gui" from="LeftHand/GUILaser" to="GUIEventSystem" method="_on_exited_gui"]
-[connection signal="laser_moved" from="LeftHand/GUILaser" to="GUIEventSystem" method="_handle_laser_moved"]
-[connection signal="laser_button_pressed" from="RightHand/GUILaser" to="GUIEventSystem" method="_handle_laser_input_pressed"]
-[connection signal="laser_button_released" from="RightHand/GUILaser" to="GUIEventSystem" method="_handle_laser_input_released"]
-[connection signal="laser_entered_gui" from="RightHand/GUILaser" to="GUIEventSystem" method="_on_entered_gui"]
-[connection signal="laser_exited_gui" from="RightHand/GUILaser" to="GUIEventSystem" method="_on_exited_gui"]
-[connection signal="laser_moved" from="RightHand/GUILaser" to="GUIEventSystem" method="_handle_laser_moved"]
+[connection signal="gui_button_pressed" from="LeftHand/XRLaser" to="GUIEventSystem" method="_handle_laser_input_pressed"]
+[connection signal="gui_button_released" from="LeftHand/XRLaser" to="GUIEventSystem" method="_handle_laser_input_released"]
+[connection signal="gui_entered" from="LeftHand/XRLaser" to="GUIEventSystem" method="_on_entered_gui"]
+[connection signal="gui_exited" from="LeftHand/XRLaser" to="GUIEventSystem" method="_on_exited_gui"]
+[connection signal="gui_pointer_moved" from="LeftHand/XRLaser" to="GUIEventSystem" method="_handle_laser_moved"]
+[connection signal="gui_button_pressed" from="RightHand/XRLaser" to="GUIEventSystem" method="_handle_laser_input_pressed"]
+[connection signal="gui_button_released" from="RightHand/XRLaser" to="GUIEventSystem" method="_handle_laser_input_released"]
+[connection signal="gui_entered" from="RightHand/XRLaser" to="GUIEventSystem" method="_on_entered_gui"]
+[connection signal="gui_exited" from="RightHand/XRLaser" to="GUIEventSystem" method="_on_exited_gui"]
+[connection signal="gui_pointer_moved" from="RightHand/XRLaser" to="GUIEventSystem" method="_handle_laser_moved"]

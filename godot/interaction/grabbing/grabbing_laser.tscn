@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://xvp3wtcj4yh8"]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource type="Script" path="res://scripts/interactions/grabbing/grabbing_laser.gd" id="1_f0vk4"]
+[ext_resource type="Script" path="res://scripts/interactions/grabbing/laser_grab_module.gd" id="1_f0vk4"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_pd77i"]
 radius = 0.01
