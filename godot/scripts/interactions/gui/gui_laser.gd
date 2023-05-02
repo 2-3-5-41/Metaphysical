@@ -8,10 +8,12 @@ signal laser_button_pressed(laser, point)
 signal laser_button_released(laser, point)
 
 @export var ui_interact_action: String = "trigger_click"
+@export var lerp_speed: float = 8.0
 
 @onready var controller: XRController3D = $".."
 
 var target_gui: GUI3D
+var current_hit: Vector3
 var prev_hit: Vector3
 
 #----------------------------------------
@@ -43,15 +45,16 @@ func _process(_delta):
 		emit_signal("laser_entered_gui", hit)
 	else: 
 		return
-	
-	_handle_pointer_moved()
 
-func _handle_pointer_moved():
-	var point = self.get_collision_point()
+func _physics_process(delta):
+	_handle_pointer_moved(delta)
+
+func _handle_pointer_moved(delta: float):
+	current_hit = current_hit.lerp(get_collision_point(), delta * lerp_speed)
 	
-	emit_signal("laser_moved", self, point, prev_hit)
+	emit_signal("laser_moved", self, current_hit, prev_hit)
 	
-	prev_hit = point
+	prev_hit = current_hit
 
 func _handle_button_pressed(button: String):
 	if button != ui_interact_action:
@@ -60,7 +63,7 @@ func _handle_button_pressed(button: String):
 		push_warning("can't send 'button_pressed' event to `null` `target_gui`")
 		return
 	
-	emit_signal("laser_button_pressed", self, self.get_collision_point())
+	emit_signal("laser_button_pressed", self, current_hit)
 
 func _handle_button_released(button: String):
 	if button != ui_interact_action:
@@ -69,4 +72,4 @@ func _handle_button_released(button: String):
 		push_warning("can't send 'button_pressed' event to `null` `target_gui`")
 		return
 	
-	emit_signal("laser_button_released", self, self.get_collision_point())
+	emit_signal("laser_button_released", self, current_hit)

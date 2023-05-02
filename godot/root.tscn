@@ -1,22 +1,32 @@
-[gd_scene load_steps=6 format=3 uid="uid://xhtew83vkg4d"]
+[gd_scene load_steps=10 format=3 uid="uid://xhtew83vkg4d"]
 
 [ext_resource type="Script" path="res://scripts/interactions/start_xr.gd" id="1_njvo6"]
-[ext_resource type="PackedScene" uid="uid://tf0xka0b4uch" path="res://interaction/player/xr_rig.tscn" id="2_unfkf"]
+[ext_resource type="PackedScene" uid="uid://cfpsivfo7rr6o" path="res://interaction/player/xr_rig.tscn" id="2_unfkf"]
 [ext_resource type="PackedScene" uid="uid://cavbt16irkdbv" path="res://gui/3d/virtual_keyboard.tscn" id="3_1u5p0"]
 [ext_resource type="PackedScene" uid="uid://bpmhj6hr2t8wy" path="res://gui/3d/multiplayer_start.tscn" id="4_sp4su"]
 [ext_resource type="Environment" uid="uid://pffg67f0khfu" path="res://default_envrionment.tres" id="5_i243p"]
+[ext_resource type="Texture2D" uid="uid://bfmn0ovhye14u" path="res://addons/kenney_prototype_textures/dark/texture_01.png" id="6_g5hlr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dr6y2"]
+size = Vector3(100, 1, 100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ppp7"]
+albedo_texture = ExtResource("6_g5hlr")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_0k4jl"]
+size = Vector3(100, 1, 100)
 
 [node name="Root" type="Node"]
 script = ExtResource("1_njvo6")
 
 [node name="XRRig" parent="." instance=ExtResource("2_unfkf")]
 
-[node name="VirtualKeyboard" parent="." node_paths=PackedStringArray("active_viewport") instance=ExtResource("3_1u5p0")]
-transform = Transform3D(-1, 2.26267e-08, -8.44439e-08, 0, 0.965926, 0.258819, 8.74228e-08, 0.258819, -0.965926, 0, 0.67287, 2)
-active_viewport = NodePath("../MultiplayerStart/SubViewport")
-
 [node name="MultiplayerStart" parent="." instance=ExtResource("4_sp4su")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1, 3)
+
+[node name="VirtualKeyboard" parent="." instance=ExtResource("3_1u5p0")]
+transform = Transform3D(-1, 0, -8.74228e-08, -5.13772e-08, 0.809089, 0.587686, 7.07328e-08, 0.587686, -0.809089, -1.19209e-07, 0.450373, 2.64982)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("5_i243p")
@@ -24,3 +34,14 @@ environment = ExtResource("5_i243p")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(0.5, -1.49012e-08, 0.866025, -0.75, 0.5, 0.433013, -0.433013, -0.866025, 0.25, 0, 0, 0)
 light_angular_distance = 0.5
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_dr6y2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+material_override = SubResource("StandardMaterial3D_7ppp7")
+mesh = SubResource("BoxMesh_0k4jl")

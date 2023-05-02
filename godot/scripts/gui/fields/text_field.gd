@@ -9,12 +9,22 @@ func _open_keyboard():
 	var local_space = get_tree().get_nodes_in_group("local_space")
 	for node in local_space:
 		if node is VirtualKeyboard:
-			node._start_editing(true)
+			var viewport := GUIUtility.get_sub_viewport(self)
+			
+			# Already editing
+			if node.active_viewport == viewport:
+				return
+			
+			node._start_editing(viewport)
 			return
 
 func _close_keyboard():
 	var local_space = get_tree().get_nodes_in_group("local_space")
 	for node in local_space:
 		if node is VirtualKeyboard:
-			node._start_editing(false)
+			# Already stopped editing.
+			if node.active_viewport == null:
+				return
+			
+			node._stop_editing()
 			return

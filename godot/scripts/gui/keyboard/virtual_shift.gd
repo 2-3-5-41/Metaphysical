@@ -1,4 +1,5 @@
 extends VirtualKeyBase
+class_name VirtualShift
 
 @export var is_caps: bool = false
 

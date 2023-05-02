@@ -1,5 +1,5 @@
 extends Node
-class_name GUILaserEventSystem
+class_name GUIEventSystem
 
 var _active_laser: GUILaser = null
 var _active_gui: GUI3D = null
@@ -14,7 +14,7 @@ func _handle_laser_input_pressed(laser: GUILaser, point: Vector3):
 	
 	_active_gui._virtual_pointer_click(point)
 
-func _handle_laser_input_released(laser: GUILaser, point: Vector3):
+func _handle_laser_input_released(_laser: GUILaser, point: Vector3):
 	if !_active_gui:
 		return
 	
