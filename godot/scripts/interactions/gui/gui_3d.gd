@@ -20,17 +20,17 @@ func _ready():
 func _process(_delta):
 	if _resolution != Vector2(viewport.get_size()):
 		set_resolution(Vector2(viewport.get_size()))
-	
+
 	if world_scale != _prev_scale:
 		_update_aspect()
 		_prev_scale = world_scale
 
 func set_resolution(res: Vector2):
 	_resolution = res
-	
+
 	if viewport.get_size() != Vector2i(res):
 		viewport.set_size(Vector2i(res))
-	
+
 	_update_aspect()
 
 func set_world_scale(value: float):
@@ -77,7 +77,7 @@ func _virtual_pointer_moved(from, to):
 
 func _virtual_pointer_click(pos: Vector3):
 	var at = _global_to_viewport(pos)
-	
+
 	# Let's mimic a mouse
 	var event = InputEventMouseButton.new()
 	event.set_button_index(1)
@@ -85,13 +85,13 @@ func _virtual_pointer_click(pos: Vector3):
 	event.set_position(at)
 	event.set_global_position(at)
 	event.set_button_mask(1)
-	
+
 	if viewport:
 		viewport.push_input(event)
 
 func _virtual_pointer_release(pos: Vector3):
 	var at = _global_to_viewport(pos)
-	
+
 	# Let's mimic a mouse
 	var event = InputEventMouseButton.new()
 	event.set_button_index(1)
@@ -99,6 +99,6 @@ func _virtual_pointer_release(pos: Vector3):
 	event.set_position(at)
 	event.set_global_position(at)
 	event.set_button_mask(0)
-	
+
 	if viewport:
 		viewport.push_input(event) # Causes debug error?

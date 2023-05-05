@@ -15,10 +15,6 @@ run/main_scene="res://root.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
 
-[autoload]
-
-XRToolsUserSettings="*res://addons/godot-xr-tools/user_settings/user_settings.gd"
-
 [display]
 
 window/size/viewport_width=1920

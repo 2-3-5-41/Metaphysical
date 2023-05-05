@@ -11,24 +11,9 @@
             "id": "0d162f7efefb2c9f",
             "type": "leaf",
             "state": {
-              "type": "canvas",
-              "state": {
-                "file": "Design choises/Interactions/Untitled.canvas",
-                "viewState": {
-                  "x": 1309.6798428141644,
-                  "y": -105.63011065111877,
-                  "zoom": -0.036040841175853044
-                }
-              }
-            }
-          },
-          {
-            "id": "093426ae70534097",
-            "type": "leaf",
-            "state": {
               "type": "markdown",
               "state": {
-                "file": "Elusive forward vector of objects.md",
+                "file": "Procedural Meshes/ImmediateMesh.md",
                 "mode": "source",
                 "source": true
               }
@@ -46,8 +31,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -92,6 +76,14 @@
               "type": "starred",
               "state": {}
             }
+          },
+          {
+            "id": "4ae917f0e4922c53",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
           }
         ]
       }
@@ -113,7 +105,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Elusive forward vector of objects.md",
+                "file": "Procedural Meshes/ImmediateMesh.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -130,7 +122,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Elusive forward vector of objects.md",
+                "file": "Procedural Meshes/ImmediateMesh.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -153,7 +145,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Elusive forward vector of objects.md"
+                "file": "Procedural Meshes/ImmediateMesh.md"
               }
             }
           }
@@ -175,20 +167,25 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "093426ae70534097",
+  "active": "0d162f7efefb2c9f",
   "lastOpenFiles": [
+    "Procedural Meshes/Quad strip spline mesh.md",
+    "Procedural Meshes/ImmediateMesh.md",
     "Design choises/Interactions/Untitled.canvas",
+    "Procedural Meshes/Quad Strip - Spline Mesh.md",
+    "Project Objective.md",
+    "Procedural Meshes",
+    "Circle math.md",
     "Elusive forward vector of objects.md",
+    "Design choises/Interactions/GUI understandings for Godot 4.md",
     "Design choises/Interactions/Grab laser.md",
     "Design choises/Interactions/Grabbable objects.md",
-    "Design choises/Interactions/GUI understandings for Godot 4.md",
     "Design choises/Interactions/Locomotion.md",
     "Design choises/Interactions/Virtual Keyboard.md",
     "2023-04-28.md",
     "Excalidraw/Drawing 2023-04-28 00.04.48.excalidraw.md",
     "Excalidraw",
     "Aspect Ratio.md",
-    "Project Objective.md",
     "Design choises/Interactions",
     "Design choises",
     "Interactions/Player/xr_rig.canvas",

@@ -1,14 +1,14 @@
 {
 	"nodes":[
-		{"id":"6ba37b28fe32f749","x":-220,"y":-349,"width":250,"height":60,"type":"text","text":"Grab Laser"},
-		{"id":"e75ee22c765116d3","x":615,"y":-780,"width":685,"height":60,"type":"text","text":"Lerp to resting point, and fade out laser visuals after some time of no hits."},
-		{"id":"0b5b054928a930a3","x":615,"y":-360,"width":250,"height":60,"type":"text","text":"Is hitting a new object?"},
-		{"id":"f3a683ae6374416b","x":615,"y":149,"width":250,"height":60,"type":"text","text":"Is primary grabbing laser?"},
-		{"id":"6f09b2a39d417b1d","x":1140,"y":-81,"width":685,"height":260,"type":"text","text":"- Save distance between the grabbed object and the laser.\n- 'Instantiate' virtual parent between the grabbed object and the reference point in world space.\n- Lerp reference point to front of laser, offset by saved distance\n\n---\n\nWhile grabbing an object, the user should be able to use--by default-- their joystick/primary touchpad to move the grabbed object closer or farther from the laser."},
-		{"id":"12e7cdcdd7dfd68f","x":1140,"y":-330,"width":478,"height":70,"type":"text","text":"Continue lerping reference point to new point"},
-		{"id":"6c7794706f25f64c","x":1140,"y":-459,"width":478,"height":99,"type":"text","text":"Snap reference point to new hit point, then start lerping in next frame."},
-		{"id":"eb2a317336b7aa18","x":1140,"y":260,"width":670,"height":74,"type":"text","text":"Behave as reference point for the primary grabbing laser."},
-		{"id":"dc3fafa00c2d2d17","x":445,"y":620,"width":589,"height":64,"type":"text","text":"This is determined by the local_space `GrabbingEventSystem`"}
+		{"type":"text","text":"Grab Laser","id":"6ba37b28fe32f749","x":-220,"y":-349,"width":250,"height":60},
+		{"type":"text","text":"Lerp to resting point, and fade out laser visuals after some time of no hits.","id":"e75ee22c765116d3","x":615,"y":-780,"width":685,"height":60},
+		{"type":"text","text":"Is hitting a new object?","id":"0b5b054928a930a3","x":615,"y":-360,"width":250,"height":60},
+		{"type":"text","text":"Is primary grabbing laser?","id":"f3a683ae6374416b","x":615,"y":149,"width":250,"height":60},
+		{"type":"text","text":"- Save distance between the grabbed object and the laser.\n- 'Instantiate' virtual parent between the grabbed object and the reference point in world space.\n- Lerp reference point to front of laser, offset by saved distance\n\n---\n\nWhile grabbing an object, the user should be able to use--by default-- their joystick/primary touchpad to move the grabbed object closer or farther from the laser.","id":"6f09b2a39d417b1d","x":1140,"y":-81,"width":685,"height":260},
+		{"type":"text","text":"Continue lerping reference point to new point","id":"12e7cdcdd7dfd68f","x":1140,"y":-330,"width":478,"height":70},
+		{"type":"text","text":"Snap reference point to new hit point, then start lerping in next frame.","id":"6c7794706f25f64c","x":1140,"y":-459,"width":478,"height":99},
+		{"type":"text","text":"Behave as reference point for the primary grabbing laser.","id":"eb2a317336b7aa18","x":1140,"y":260,"width":670,"height":74},
+		{"type":"text","text":"This is determined by the local_space `GrabbingEventSystem`","id":"dc3fafa00c2d2d17","x":445,"y":620,"width":589,"height":64}
 	],
 	"edges":[
 		{"id":"1625fe25354b22c0","fromNode":"6ba37b28fe32f749","fromSide":"right","toNode":"e75ee22c765116d3","toSide":"left","label":"Not hitting"},

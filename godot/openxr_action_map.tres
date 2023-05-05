@@ -512,7 +512,7 @@ paths = PackedStringArray("/user/hand/left/input/squeeze/value", "/user/hand/rig
 
 [sub_resource type="OpenXRIPBinding" id="OpenXRIPBinding_i4hqv"]
 action = SubResource("OpenXRAction_55513")
-paths = PackedStringArray("/user/hand/left/input/squeeze/value", "/user/hand/right/input/squeeze/value")
+paths = PackedStringArray("/user/hand/left/input/squeeze/force", "/user/hand/right/input/squeeze/force")
 
 [sub_resource type="OpenXRIPBinding" id="OpenXRIPBinding_uy3a5"]
 action = SubResource("OpenXRAction_jcymg")
