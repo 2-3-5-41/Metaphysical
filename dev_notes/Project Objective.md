@@ -1,7 +1,10 @@
 
-The objective  of the `Metaphysical` project is to create an expansive social xr, and collaborative platform for users to have a fun social life in the 'metaverse', but also be able to create games or experiences inside the 'metaverse' without the need to take off their headset and/or using an outside editor.
+Project name: _Metaphysical_
+Project platform: _OpenXR (no "pancake land" support)_
 
----
+## Idea
 
-1. Create an expansice social XR and collaborative platform.
-2. Provide ability to create in-verse experiences without the need for external software.
+The idea of this project is to bring what Gmod, and Roblox allow, but in XR. You will be able to build out massive interctive worlds, dream games, or just create general purpose social environments, all while in VR; no desktop editor, no time spend away form the headset, and no need to put on and take of your headset while developing an avatar, environment, or game.
+
+This project is ment to take all the good things from VRChat, and Neos, then bring them into a more streamlined, and user friendly platform that acts as the _true_ metaverse.
+

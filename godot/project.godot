@@ -11,28 +11,42 @@ config_version=5
 [application]
 
 config/name="Metaphysical"
-run/main_scene="res://root.tscn"
+run/main_scene="res://scenes/world_space.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+XRToolsUserSettings="*res://addons/godot-xr-tools/user_settings/user_settings.gd"
+GuiEventSystem="*res://scripts/gui/gui_event_system.gd"
+LocalSpace="*res://scenes/local_space/local_space.tscn"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/vsync/vsync_mode=0
 
 [editor_plugins]
 
-enabled=PackedStringArray()
-
-[filesystem]
-
-import/fbx/enabled=false
+enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
 
 [layer_names]
 
+3d_render/layer_1="Default"
+3d_render/layer_20="Hidden"
 3d_physics/layer_1="Default"
-3d_physics/layer_2="Grabbable"
-3d_physics/layer_3="GUI"
+3d_physics/layer_2="Gui"
+3d_physics/layer_10="Throwable"
+
+[physics]
+
+3d/run_on_separate_thread=true
+common/physics_ticks_per_second=90
+
+[rendering]
+
+occlusion_culling/use_occlusion_culling=true
 
 [xr]
 

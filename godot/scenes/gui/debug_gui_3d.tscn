@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://camdipbb50r0g"]
+
+[ext_resource type="PackedScene" uid="uid://dhh4newp2ic1i" path="res://scenes/gui/gui_3d.tscn" id="1_3284s"]
+[ext_resource type="PackedScene" uid="uid://d2oswxxouarla" path="res://scenes/gui/prefab/debug_gui.tscn" id="2_sjud8"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_6wuyf"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yxmou"]
+resource_local_to_scene = true
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_6wuyf")
+
+[node name="DebugGui" instance=ExtResource("1_3284s")]
+gui = ExtResource("2_sjud8")
+
+[node name="SubViewport" parent="." index="0"]
+size = Vector2i(1024, 2048)
+
+[node name="MeshInstance3D" parent="." index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_yxmou")

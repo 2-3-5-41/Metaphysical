@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bocddn534nqkr"]
+
+[ext_resource type="Script" path="res://scripts/virtual_parent.gd" id="1_m4vqq"]
+
+[node name="AltCamera" type="SubViewport"]
+size = Vector2i(1920, 1080)
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("parent")]
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 2, 1, -2)
+cull_mask = 524287
+fov = 150.0
+near = 0.01
+script = ExtResource("1_m4vqq")
+follow = false
+parent = NodePath("../../Player/XROrigin3D/XRCamera3D")

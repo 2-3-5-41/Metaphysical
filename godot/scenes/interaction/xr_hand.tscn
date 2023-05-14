@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://cso75it6m2xy1"]
+
+[ext_resource type="Script" path="res://scripts/interaction/xr_hand.gd" id="1_5h2ak"]
+[ext_resource type="Script" path="res://scripts/interaction/grabber_component.gd" id="2_p0dga"]
+[ext_resource type="Script" path="res://scripts/interaction/gui_laser_component.gd" id="3_8xq57"]
+[ext_resource type="Script" path="res://scripts/procedural_mesh/laser_line_mesh.gd" id="4_7p306"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_uhy1t"]
+radius = 0.05
+height = 0.1
+radial_segments = 32
+rings = 16
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_crd8b"]
+radius = 0.08
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rsumk"]
+shading_mode = 0
+albedo_color = Color(0.843137, 0.6, 0.129412, 1)
+
+[sub_resource type="Curve3D" id="Curve3D_7f5bf"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[node name="XRHand" type="XRController3D"]
+script = ExtResource("1_5h2ak")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_uhy1t")
+
+[node name="Interactions" type="Node3D" parent="."]
+
+[node name="GrabArea" type="ShapeCast3D" parent="Interactions"]
+shape = SubResource("SphereShape3D_crd8b")
+target_position = Vector3(0, 0, 0)
+collision_mask = 512
+
+[node name="GrabberComponent" type="Marker3D" parent="Interactions/GrabArea"]
+script = ExtResource("2_p0dga")
+
+[node name="GuiLaser" type="RayCast3D" parent="Interactions"]
+target_position = Vector3(0, 0, -128)
+collision_mask = 2
+debug_shape_thickness = 1
+
+[node name="GuiLaserComponent" type="Node" parent="Interactions/GuiLaser" node_paths=PackedStringArray("visual_instance")]
+script = ExtResource("3_8xq57")
+visual_instance = NodePath("../LaserLineMesh")
+
+[node name="LaserLineMesh" type="MeshInstance3D" parent="Interactions/GuiLaser"]
+material_override = SubResource("StandardMaterial3D_rsumk")
+script = ExtResource("4_7p306")
+curve = SubResource("Curve3D_7f5bf")

@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cp2cfbxvg4aet"]
+
+[ext_resource type="PackedScene" uid="uid://b0nu8t74pewyq" path="res://scenes/local_space/player.tscn" id="1_dpoia"]
+[ext_resource type="PackedScene" uid="uid://bf5gxb6qktcq7" path="res://scenes/gui/personal_keyboard.tscn" id="2_0pb5u"]
+
+[node name="LocalSpace" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_dpoia")]
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Player/XRPlayer/XRCamera3D" index="1"]
+remote_path = NodePath("../../../../Camera3D")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+fov = 90.0
+
+[node name="PersonalKeyboard" parent="." groups=["local_space"] instance=ExtResource("2_0pb5u")]
+transform = Transform3D(-1, -4.37114e-08, 7.57103e-08, 0, 0.866025, 0.5, -8.74228e-08, 0.5, -0.866025, 0, 0.5, 3)
+
+[editable path="Player"]
+[editable path="Player/XRPlayer/LeftHand"]
+[editable path="Player/XRPlayer/RightHand"]

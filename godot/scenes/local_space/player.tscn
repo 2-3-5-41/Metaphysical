@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0nu8t74pewyq"]
+
+[ext_resource type="Script" path="res://addons/godot-xr-tools/xr/start_xr.gd" id="1_auter"]
+[ext_resource type="PackedScene" uid="uid://cso75it6m2xy1" path="res://scenes/interaction/xr_hand.tscn" id="2_3iger"]
+
+[node name="Player" type="SubViewport"]
+use_xr = true
+use_debanding = true
+use_occlusion_culling = true
+size = Vector2i(0, 0)
+script = ExtResource("1_auter")
+
+[node name="XRPlayer" type="XROrigin3D" parent="." groups=["local_space"]]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XRPlayer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="Neck" type="Marker3D" parent="XRPlayer/XRCamera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.198402, 0.194125)
+
+[node name="LeftHand" parent="XRPlayer" groups=["local_space"] instance=ExtResource("2_3iger")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 0)
+tracker = &"left_hand"
+pose = &"aim"
+
+[node name="GrabArea" parent="XRPlayer/LeftHand/Interactions" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04, -0.07, 0.025)
+
+[node name="RightHand" parent="XRPlayer" groups=["local_space"] instance=ExtResource("2_3iger")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0)
+tracker = &"right_hand"
+
+[node name="GrabArea" parent="XRPlayer/RightHand/Interactions" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04, -0.07, 0.025)
+
+[editable path="XRPlayer/LeftHand"]
+[editable path="XRPlayer/RightHand"]

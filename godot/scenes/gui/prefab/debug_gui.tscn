@@ -1,0 +1,80 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2oswxxouarla"]
+
+[ext_resource type="Script" path="res://scripts/interaction/editable_field.gd" id="1_ndeei"]
+
+[node name="DebugGUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 167.0
+offset_bottom = 90.0
+text = "Metaphysical"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.2
+anchor_right = 0.8
+anchor_bottom = 0.8
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Buttons" type="VBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer/Buttons"]
+layout_mode = 2
+text = "Button"
+
+[node name="CheckButton" type="CheckButton" parent="Panel/VBoxContainer/Buttons"]
+layout_mode = 2
+text = "Check Button
+"
+
+[node name="OptionButton" type="OptionButton" parent="Panel/VBoxContainer/Buttons"]
+layout_mode = 2
+item_count = 2
+popup/item_0/text = "Option 1"
+popup/item_0/id = 0
+popup/item_1/text = "Option 2"
+popup/item_1/id = 1
+
+[node name="Editable" type="VBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextEdit" type="TextEdit" parent="Panel/VBoxContainer/Editable"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "Edit Me"
+script = ExtResource("1_ndeei")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut egestas lorem. Nam auctor id eros ut lobortis. Fusce laoreet, arcu quis mollis accumsan, sem mauris vulputate nulla, ac commodo lacus est eu turpis. Quisque commodo nulla sed vulputate congue. Fusce viverra lectus dolor, quis rhoncus turpis dignissim ac. Nam fringilla erat augue, congue porta ante efficitur at. Suspendisse potenti. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam vitae dictum nunc, non cursus urna. Nullam semper orci nec imperdiet tempor. Phasellus tortor risus, gravida eu tellus eu, pellentesque vulputate urna.
+
+Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Proin malesuada diam nec arcu pellentesque placerat. Proin gravida condimentum sapien vitae vestibulum. Vestibulum sollicitudin sem a eros accumsan fringilla. Suspendisse eu molestie ipsum. Morbi ut magna molestie, auctor libero at, imperdiet dui. Ut eget tempor augue, vel egestas nulla. Pellentesque sit amet elementum erat, quis suscipit mi. Integer lacinia vitae orci at feugiat. Aenean posuere, massa non tempor laoreet, turpis erat condimentum metus, sed accumsan tortor ipsum et eros. Pellentesque pellentesque finibus lectus in imperdiet.
+
+Morbi a metus id dui maximus aliquam. Etiam quis velit at ligula mollis pellentesque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis eget enim sit amet erat luctus convallis dapibus eu velit. In et justo id nunc dictum feugiat at vitae lectus. Phasellus maximus eu dolor sit amet maximus. Integer rutrum semper commodo. Donec cursus dictum lorem at rhoncus. In nec diam vitae justo condimentum vehicula quis quis ligula. Vivamus laoreet pharetra bibendum. Vivamus sit amet felis sagittis, pretium arcu sit amet, consequat odio. Morbi a nisi at lacus ullamcorper elementum. In imperdiet, libero eget ornare faucibus, arcu augue tincidunt quam, sed cursus quam nulla at neque. Sed eget urna justo. Mauris posuere, purus vitae sodales mattis, lorem sem consequat libero, et varius eros metus sit amet nunc. Nullam aliquet tristique arcu ac egestas.
+
+Vestibulum quis vehicula nunc. Sed ut convallis dolor. Mauris ut posuere nibh. Nullam non nibh rhoncus, ultrices purus sit amet, laoreet nisi. Donec gravida est ullamcorper augue mattis blandit. Sed non finibus diam. Praesent vel consectetur urna. Aliquam sit amet ipsum id risus porta fringilla.
+
+In lacinia urna eu tellus suscipit blandit. Aenean at mollis magna. Nullam sed leo eget libero tempus rhoncus. Aliquam lacinia mauris arcu, et rhoncus arcu aliquet eget. Quisque malesuada tristique velit, non pulvinar ipsum ornare efficitur. Praesent consectetur sapien nec finibus rutrum. Quisque id maximus augue. Donec et tincidunt tellus, id faucibus augue. Fusce iaculis neque vel ex accumsan consectetur. Donec eget turpis leo. Mauris sapien odio, ultrices mattis diam a, luctus blandit arcu. Cras sit amet lectus quis dolor dapibus blandit non vel justo. Etiam at justo ut nisl lobortis bibendum. Pellentesque auctor suscipit iaculis. Sed eu rhoncus massa, vestibulum aliquet sapien."

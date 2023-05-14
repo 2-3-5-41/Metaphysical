@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://bf5gxb6qktcq7"]
+
+[ext_resource type="Script" path="res://scripts/interaction/virtual_keyboard/virtual_keyboard.gd" id="1_nl4y2"]
+[ext_resource type="PackedScene" uid="uid://bokm77f1ctup1" path="res://scenes/gui/prefab/virtual_keyboard_default.tscn" id="2_dyh7s"]
+[ext_resource type="Script" path="res://scripts/gui/gui_body_3d.gd" id="2_vopxl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hlel3"]
+size = Vector3(1, 1, 0.01)
+
+[sub_resource type="QuadMesh" id="QuadMesh_uopkv"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_jacs7"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i3tyc"]
+resource_local_to_scene = true
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_jacs7")
+
+[node name="PersonalKeyboard" type="Node3D"]
+script = ExtResource("1_nl4y2")
+gui = ExtResource("2_dyh7s")
+world_scale = 0.3
+
+[node name="SubViewport" type="SubViewport" parent="."]
+disable_3d = true
+transparent_bg = true
+gui_embed_subwindows = true
+size = Vector2i(1000, 355)
+
+[node name="GUIBody3D" type="StaticBody3D" parent="."]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("2_vopxl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GUIBody3D"]
+shape = SubResource("BoxShape3D_hlel3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_uopkv")
+surface_material_override/0 = SubResource("StandardMaterial3D_i3tyc")

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c34jxe4fbdvtr"]
+
+[ext_resource type="PackedScene" uid="uid://456w524m1rjl" path="res://scenes/defaults/dev_world.tscn" id="1_vshyb"]
+[ext_resource type="PackedScene" uid="uid://camdipbb50r0g" path="res://scenes/gui/debug_gui_3d.tscn" id="2_enr5g"]
+
+[node name="WorldSpace" type="Node3D"]
+
+[node name="WorldRoot" type="Node" parent="."]
+
+[node name="DevWorld" parent="WorldRoot" instance=ExtResource("1_vshyb")]
+
+[node name="DebugGui" parent="WorldRoot" instance=ExtResource("2_enr5g")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.49691e-07, 1.5, 4)
+world_scale = 2.0

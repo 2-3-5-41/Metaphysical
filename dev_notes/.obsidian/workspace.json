@@ -1,51 +1,64 @@
 {
   "main": {
-    "id": "777d37158b711ee5",
+    "id": "dfceede5abd73940",
     "type": "split",
     "children": [
       {
-        "id": "39d0ba899fb1ed02",
+        "id": "89d5936d2c5217fb",
         "type": "tabs",
         "children": [
           {
-            "id": "0d162f7efefb2c9f",
+            "id": "02b28223ef358232",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Procedural Meshes/ImmediateMesh.md",
+                "file": "Grabbable Interactions.md",
                 "mode": "source",
-                "source": true
+                "source": false
               }
             }
           },
           {
-            "id": "156a297dce88da39",
+            "id": "d623422fc48b6203",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Design choises/Interactions/GUI understandings for Godot 4.md",
+                "file": "Grabbable Interactions.md",
                 "mode": "source",
-                "source": true
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "e36738daea9a80af",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Project Objective.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "ada8e9c45beefac1",
+    "id": "93786c4fbf0d4799",
     "type": "split",
     "children": [
       {
-        "id": "06a749122d906378",
+        "id": "b08c0cc9982e6a8b",
         "type": "tabs",
         "children": [
           {
-            "id": "bf55116cfd069742",
+            "id": "4361014fd15d5fa7",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -55,7 +68,7 @@
             }
           },
           {
-            "id": "4b26a85ca2475fde",
+            "id": "9c8c53565648238e",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -70,15 +83,7 @@
             }
           },
           {
-            "id": "00ff92f847b79529",
-            "type": "leaf",
-            "state": {
-              "type": "starred",
-              "state": {}
-            }
-          },
-          {
-            "id": "4ae917f0e4922c53",
+            "id": "ecb817df36451261",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -89,23 +94,23 @@
       }
     ],
     "direction": "horizontal",
-    "width": 299.5
+    "width": 300
   },
   "right": {
-    "id": "1aad4c7c48df1798",
+    "id": "58b05605d68b669a",
     "type": "split",
     "children": [
       {
-        "id": "5db5aa22f074192f",
+        "id": "1e86c4f95fcc6bcd",
         "type": "tabs",
         "children": [
           {
-            "id": "8ee9a2f7889a6658",
+            "id": "a2cbcc962b97acbc",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Procedural Meshes/ImmediateMesh.md",
+                "file": "Grabbable Interactions.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -117,19 +122,19 @@
             }
           },
           {
-            "id": "3669a684cd5ea6eb",
+            "id": "e0d6f642b237e4c1",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Procedural Meshes/ImmediateMesh.md",
+                "file": "Grabbable Interactions.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
             }
           },
           {
-            "id": "9c4bf1e22bcf69d9",
+            "id": "6bfb3db697f42cb0",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -140,12 +145,12 @@
             }
           },
           {
-            "id": "454c3bdf99c855d8",
+            "id": "d1de364299c3252b",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "Procedural Meshes/ImmediateMesh.md"
+                "file": "Grabbable Interactions.md"
               }
             }
           }
@@ -153,7 +158,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 318.5,
+    "width": 300,
     "collapsed": true
   },
   "left-ribbon": {
@@ -163,44 +168,13 @@
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false,
-      "obsidian-excalidraw-plugin:Create new drawing": false
+      "command-palette:Open command palette": false
     }
   },
-  "active": "0d162f7efefb2c9f",
+  "active": "d623422fc48b6203",
   "lastOpenFiles": [
-    "Procedural Meshes/Quad strip spline mesh.md",
-    "Procedural Meshes/ImmediateMesh.md",
-    "Design choises/Interactions/Untitled.canvas",
-    "Procedural Meshes/Quad Strip - Spline Mesh.md",
-    "Project Objective.md",
-    "Procedural Meshes",
-    "Circle math.md",
-    "Elusive forward vector of objects.md",
-    "Design choises/Interactions/GUI understandings for Godot 4.md",
-    "Design choises/Interactions/Grab laser.md",
-    "Design choises/Interactions/Grabbable objects.md",
-    "Design choises/Interactions/Locomotion.md",
-    "Design choises/Interactions/Virtual Keyboard.md",
-    "2023-04-28.md",
-    "Excalidraw/Drawing 2023-04-28 00.04.48.excalidraw.md",
-    "Excalidraw",
-    "Aspect Ratio.md",
-    "Design choises/Interactions",
-    "Design choises",
-    "Interactions/Player/xr_rig.canvas",
-    "Interactions/Player",
-    "Interactions",
-    "Interactions/3D GUI.md",
-    "Interactions/Hand Based Interactions.canvas",
-    "Interactions/Reverse engineering GodotXRTools..md",
-    "Interactions/3D GUI Interaction Graph.canvas",
-    "Interactions/Laser Grabbing.md",
-    "Having better physics in XR.md",
-    "Pasted image 20230416193503.png",
-    "Interactions/3D GUI",
-    "Interactions",
-    "2023-04-16.md",
-    "Project Plan and Layout.canvas"
+    "InteractionLaser.md",
+    "Grabbable Interactions.md",
+    "Project Objective.md"
   ]
 }

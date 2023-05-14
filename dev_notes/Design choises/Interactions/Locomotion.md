@@ -1,2 +1,0 @@
-- There should be at minimum, physical and teleport locomotions.
-- Locomotion should have ambidextrious movement input, but opposing hand input when grabbing an interactable object.
