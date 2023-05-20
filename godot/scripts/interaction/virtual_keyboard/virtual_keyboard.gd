@@ -7,6 +7,8 @@ enum ShiftMod {
 	CAPSLOCK,
 }
 
+@export var spawn_check_cast: RayCast3D
+
 var active_viewport: SubViewport
 var shift: ShiftMod = ShiftMod.NONE
 
@@ -26,22 +28,29 @@ func _process_key_press(key: VirtualKey) -> void:
 	_reset_shift()
 
 func _are_we_shifting() -> bool:
-	match shift:
-		ShiftMod.NONE:
-			return false
-		ShiftMod.SHIFT:
-			return true
-		ShiftMod.CAPSLOCK:
-			return true
-
-	return false
+	return shift == ShiftMod.SHIFT or shift == ShiftMod.CAPSLOCK
 
 func start_editing(editable_view: SubViewport) -> void:
 	if active_viewport == editable_view || !editable_view: return
 	else: active_viewport = editable_view
+	display.visible = true
+	collider.disabled = false
+	
+	var world_pos: Vector3
+	var xr_camera_pos: Vector3 = XRUtils.get_xr_camera(self).global_position
+	var hit = spawn_check_cast.get_collider()
+	if !hit:
+		world_pos = spawn_check_cast.to_global(spawn_check_cast.target_position)
+	else:
+		world_pos = lerp(spawn_check_cast.get_collision_point(), xr_camera_pos, 0.32)
+	
+	look_at_from_position(world_pos, xr_camera_pos)
+	rotate_object_local(Vector3.UP, PI)
 
 func stop_editing() -> void:
 	if active_viewport: active_viewport = null
+	display.visible = false
+	collider.disabled = true
 
 func toggle_shift() -> void:
 	if shift == ShiftMod.SHIFT:

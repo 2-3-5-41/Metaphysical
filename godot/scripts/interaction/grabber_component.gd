@@ -6,6 +6,7 @@ signal release(grabber: GrabberComponent)
 enum Grab {
 	COLLECTION,
 	CLOSEST,
+	REMOTE,
 }
 
 @onready var cast: ShapeCast3D = get_parent()
@@ -52,22 +53,26 @@ func _physics_process(_delta: float) -> void:
 func _on_controller_button_pressed(button: String) -> void:
 	if button != grab_action: return
 	if not throwables.size() > 0: return
-
-	match grab_style:
-		Grab.COLLECTION:
-			grab_collection()
-		Grab.CLOSEST:
-			grab_closest()
+	handle_grab()
 
 func _on_controller_button_released(button: String) -> void:
 	if button != grab_action: return
 	emit_signal("release", self)
 
-func grab_collection() -> void:
+func handle_grab(force: Grab = grab_style) -> void:
+	match force:
+		Grab.COLLECTION:
+			_grab_collection()
+		Grab.CLOSEST:
+			_grab_closest()
+		Grab.REMOTE:
+			return
+
+func _grab_collection() -> void:
 	for obj in throwables:
 		if obj.grab(self):
 			self.release.connect(obj.release)
 
-func grab_closest() -> void:
+func _grab_closest() -> void:
 	if closest_throwable.grab(self):
 		self.release.connect(closest_throwable.release)

@@ -51,3 +51,6 @@ func _virtual_pointer_release(pos: Vector3):
 
 	if gui3d.viewport:
 		gui3d.viewport.push_input(event)
+
+func _virtual_pointer_exited() -> void:
+	_virtual_pointer_moved(Vector3.ZERO, Vector3.ZERO)

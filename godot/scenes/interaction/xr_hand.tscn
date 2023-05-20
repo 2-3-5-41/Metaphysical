@@ -19,6 +19,7 @@ shading_mode = 0
 albedo_color = Color(0.843137, 0.6, 0.129412, 1)
 
 [sub_resource type="Curve3D" id="Curve3D_7f5bf"]
+resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1),
 "tilts": PackedFloat32Array(0, 0)
@@ -52,5 +53,6 @@ visual_instance = NodePath("../LaserLineMesh")
 
 [node name="LaserLineMesh" type="MeshInstance3D" parent="Interactions/GuiLaser"]
 material_override = SubResource("StandardMaterial3D_rsumk")
+cast_shadow = 0
 script = ExtResource("4_7p306")
 curve = SubResource("Curve3D_7f5bf")

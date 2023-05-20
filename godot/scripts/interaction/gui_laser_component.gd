@@ -7,6 +7,7 @@ class_name GuiLaserComponent
 var _ray: RayCast3D
 var _smooth_hit: Vector3
 var _last_hit: Vector3
+var _prev_hit_obj: GuiBody3D
 var _exited_gui: bool = false
 
 func _ready() -> void:
@@ -34,6 +35,9 @@ func _physics_process(delta: float) -> void:
 
 		visual_instance.visible = false
 		return
+	elif hit_obj != _prev_hit_obj:
+		GuiEventSystem.on_exited_gui()
+		_exited_gui = true
 	else:
 		if !visual_instance.visible:
 			visual_instance.visible = true
@@ -50,6 +54,8 @@ func _physics_process(delta: float) -> void:
 	# Update laser visual curve
 	var curve_tangent: Vector3 = Vector3(0,0,_ray.global_position.distance_to(_smooth_hit) / 2)
 	visual_instance.update_curve(Vector3.ZERO, -curve_tangent, _ray.to_local(_smooth_hit))
+	
+	_prev_hit_obj = hit_obj
 
 func _on_trigger_pull() -> void:
 	GuiEventSystem.handle_laser_input_pressed(self, _smooth_hit)

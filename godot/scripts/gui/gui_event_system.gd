@@ -7,6 +7,8 @@ func on_entered_gui(gui: GuiBody3D) -> void:
 	_active_gui = gui
 
 func on_exited_gui() -> void:
+	if not _active_gui: return
+	_active_gui._virtual_pointer_exited()
 	_active_gui = null
 
 func handle_laser_input_pressed(laser: GuiLaserComponent, point: Vector3) -> void:

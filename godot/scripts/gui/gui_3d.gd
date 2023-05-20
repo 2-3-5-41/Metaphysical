@@ -25,7 +25,6 @@ func set_world_scale(scale: float) -> void:
 
 func _update_aspect(resolution: Vector2i) -> void:
 	aspect = Vector2(float(resolution.x) / float(resolution.y), 1) * world_scale
-	print(aspect)
 	_update = true
 
 # Called when the node enters the scene tree for the first time.

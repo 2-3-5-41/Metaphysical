@@ -1,21 +1,53 @@
-[gd_scene load_steps=3 format=3 uid="uid://cp2cfbxvg4aet"]
+[gd_scene load_steps=5 format=3 uid="uid://cp2cfbxvg4aet"]
 
 [ext_resource type="PackedScene" uid="uid://b0nu8t74pewyq" path="res://scenes/local_space/player.tscn" id="1_dpoia"]
 [ext_resource type="PackedScene" uid="uid://bf5gxb6qktcq7" path="res://scenes/gui/personal_keyboard.tscn" id="2_0pb5u"]
+
+[sub_resource type="Curve3D" id="Curve3D_uyfv0"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_gavjp"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
 
 [node name="LocalSpace" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_dpoia")]
 
-[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Player/XRPlayer/XRCamera3D" index="1"]
-remote_path = NodePath("../../../../Camera3D")
+[node name="XRCamera3D" parent="Player/XRPlayer" index="0" groups=["local_space"]]
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="DesktopCam" type="RemoteTransform3D" parent="Player/XRPlayer/XRCamera3D" index="1"]
+remote_path = NodePath("../../../../DesktopCam")
+
+[node name="KeyboardSpawnCheck" type="RayCast3D" parent="Player/XRPlayer/XRCamera3D" index="2"]
+transform = Transform3D(-1, -2.26267e-08, -8.44439e-08, 0, 0.965926, -0.258819, 8.74228e-08, -0.258819, -0.965926, 0, 0, 0)
+target_position = Vector3(0, 0, 1)
+collision_mask = 3
+collide_with_areas = true
+debug_shape_custom_color = Color(1, 1, 1, 1)
+debug_shape_thickness = 1
+
+[node name="LaserLineMesh" parent="Player/XRPlayer/LeftHand/Interactions/GuiLaser" index="1"]
+curve = SubResource("Curve3D_uyfv0")
+
+[node name="LaserLineMesh" parent="Player/XRPlayer/RightHand/Interactions/GuiLaser" index="1"]
+curve = SubResource("Curve3D_gavjp")
+
+[node name="DesktopCam" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 fov = 90.0
 
-[node name="PersonalKeyboard" parent="." groups=["local_space"] instance=ExtResource("2_0pb5u")]
-transform = Transform3D(-1, -4.37114e-08, 7.57103e-08, 0, 0.866025, 0.5, -8.74228e-08, 0.5, -0.866025, 0, 0.5, 3)
+[node name="PersonalKeyboard" parent="." node_paths=PackedStringArray("spawn_check_cast") groups=["local_space"] instance=ExtResource("2_0pb5u")]
+spawn_check_cast = NodePath("../Player/XRPlayer/XRCamera3D/KeyboardSpawnCheck")
 
 [editable path="Player"]
 [editable path="Player/XRPlayer/LeftHand"]

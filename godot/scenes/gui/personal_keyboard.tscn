@@ -21,7 +21,7 @@ albedo_texture = SubResource("ViewportTexture_jacs7")
 [node name="PersonalKeyboard" type="Node3D"]
 script = ExtResource("1_nl4y2")
 gui = ExtResource("2_dyh7s")
-world_scale = 0.3
+world_scale = 0.2
 
 [node name="SubViewport" type="SubViewport" parent="."]
 disable_3d = true
@@ -36,7 +36,9 @@ script = ExtResource("2_vopxl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GUIBody3D"]
 shape = SubResource("BoxShape3D_hlel3")
+disabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("QuadMesh_uopkv")
 surface_material_override/0 = SubResource("StandardMaterial3D_i3tyc")

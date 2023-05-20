@@ -1,7 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://b0nu8t74pewyq"]
+[gd_scene load_steps=5 format=3 uid="uid://b0nu8t74pewyq"]
 
 [ext_resource type="Script" path="res://addons/godot-xr-tools/xr/start_xr.gd" id="1_auter"]
 [ext_resource type="PackedScene" uid="uid://cso75it6m2xy1" path="res://scenes/interaction/xr_hand.tscn" id="2_3iger"]
+
+[sub_resource type="Curve3D" id="Curve3D_pxl7m"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_k257u"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
 
 [node name="Player" type="SubViewport"]
 use_xr = true
@@ -26,12 +42,18 @@ pose = &"aim"
 [node name="GrabArea" parent="XRPlayer/LeftHand/Interactions" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04, -0.07, 0.025)
 
+[node name="LaserLineMesh" parent="XRPlayer/LeftHand/Interactions/GuiLaser" index="1"]
+curve = SubResource("Curve3D_pxl7m")
+
 [node name="RightHand" parent="XRPlayer" groups=["local_space"] instance=ExtResource("2_3iger")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0)
 tracker = &"right_hand"
 
 [node name="GrabArea" parent="XRPlayer/RightHand/Interactions" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04, -0.07, 0.025)
+
+[node name="LaserLineMesh" parent="XRPlayer/RightHand/Interactions/GuiLaser" index="1"]
+curve = SubResource("Curve3D_k257u")
 
 [editable path="XRPlayer/LeftHand"]
 [editable path="XRPlayer/RightHand"]
